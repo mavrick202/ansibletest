@@ -1,0 +1,15 @@
+- name: Create additional admins coming from test.yml
+  user:
+      name: "{{item}}"
+      password: "$1$India@12$T1rZS6mMRkRbd6f99IgX4/"
+      home: /home/"{{item}}"
+      shell: /bin/bash
+
+  with_items:
+
+       - admin10
+       - admin21
+       - admin31
+
+  tags:
+      - addladmins

@@ -1,0 +1,51 @@
+---
+# tasks file for defaultusers
+ - name: Create Normal Users
+   user:
+     name: "{{item}}"
+     password: "$1$India@12$T1rZS6mMRkRbd6f99IgX4/"
+     home: /home/"{{item}}"
+     shell: /bin/bash
+
+   with_items:
+
+     - kumar
+     - rajesh
+     - anu
+
+   tags:
+      - normal
+
+ - name: Create Admin Users
+   user:
+      name: "{{item}}"
+      password: "$1$India@12$T1rZS6mMRkRbd6f99IgX4/"
+      home: /home/"{{item}}"
+      shell: /bin/bash
+
+   with_items:
+           - linuxadmin1
+           - linuxadmin2
+           - linuxadmin3
+
+   tags:
+           - admins
+
+ - name: Create additional Users
+   user:
+      name: "{{item}}"
+      password: "$1$India@12$T1rZS6mMRkRbd6f99IgX4/"
+      home: /home/"{{item}}"
+      shell: /bin/bash
+
+   with_items:
+
+       - linuxadmin10
+       - linuxadmin21
+       - linuxadmin31
+
+   tags:
+      - additional
+
+ - name: Include task list in play
+   include: test.yml
